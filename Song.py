@@ -7,6 +7,7 @@ class Song:
 
   # TODO: Create a getter method for the title attribute, called get_title
   def get_title(self):
+
     return self.__title
     
   
@@ -33,4 +34,4 @@ class Song:
 
   # TODO: Using the __repr__ dunder method, return a string formatted as the following:'Song Title -> Next Song Title'
   def __repr__(self):
-    pass
+    return (f'{self.title}--->{self.next_song}')
