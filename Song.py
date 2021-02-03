@@ -28,10 +28,10 @@ class Song:
 
   # TODO: Using the __str___ dunder method, return a string of the song title.
   def __str__(self):
-    return (f"The title of the song is {self.title}")
+    return (f"The title of the song is {self.__title}")
     
 
 
   # TODO: Using the __repr__ dunder method, return a string formatted as the following:'Song Title -> Next Song Title'
   def __repr__(self):
-    return (f'{self.title}--->{self.next_song}')
+    return (f'Song Title--->{self.__next_song}')
