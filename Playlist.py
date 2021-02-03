@@ -9,7 +9,7 @@ class Playlist:
 
   def add_song(self, title):
     new_song = Song(title)
-    new_song.next = self.__first_song
+    new_song.set_next_song(self.__first_song)
     self.__first_song = new_song
 
   # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
@@ -35,9 +35,8 @@ class Playlist:
 
     while this_song != None:
       if this_song.get_title() != title:
-        if prev_song:
-          prev_song.set_next_song(this_song.get_next_song())
-
+        previous_song = current_song
+        current_song = current_song.get_next_song()
     
 
   # TODO: Create a method called length, which returns the number of songs in the playlist.
@@ -46,19 +45,14 @@ class Playlist:
       current_song = self.__first_song
       counter = 0
 
-      while current_song.next_song != None:
+      while current_song != None:
           counter += 1
-          current_song = current_song.get_next_song
+          current_song = current_song.get_next_song()
       return counter
     
 
 
   # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
-
-  # Example:
-  # 1. Song Title 1
-  # 2. Song Title 2
-  # 3. Song Title 3
 
   def print_songs(self):
     current_song = self.__first_song
